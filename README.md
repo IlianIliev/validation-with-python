@@ -4,6 +4,8 @@
 - Each separate section has its own `requirements.txt` file, and all requirements files are linked in the main `requirements.txt` at the root of the repository.
 
 
+This repo is related to a presentation for [Data Validation with Python](https://docs.google.com/presentation/d/1SYrkt3BDIW7O_7NOzGZg8fgW6owR-FS1Fmr-A7gYhAk/edit?usp=sharing).
+
 ## When to use what
 
 - Use Pydantic for non-Django projects
