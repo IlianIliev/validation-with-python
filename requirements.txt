@@ -1,0 +1,6 @@
+-r ./01-pydantic/requirements.txt
+-r ./02-django/requirements.txt
+
+# Code styling requirements
+black==23.3.0
+flake8==6.0.0
