@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from pure_forms.forms import UserForm
+from pure_forms.forms import UserForm, BusinessUserForm
 
 
 class TestUserForm(TestCase):
@@ -33,4 +33,23 @@ class TestUserForm(TestCase):
         self.assertEqual(
             form.cleaned_data,
             {"name": "John", "email": "john@example.org", "age": None},
+        )
+
+
+class TestBusinessUserForm(TestCase):
+    def test_with_invalid_vat(self):
+        form = BusinessUserForm(
+            {
+                "id": 1,
+                "email": "company@example.org",
+                "name": "Example Inc.",
+                "company": "Example Inc.",
+                "country": "BG",
+                "vat_id": "123456789",
+            }
+        )
+
+        self.assertFalse(form.is_valid())
+        self.assertEqual(
+            form.errors, {"vat_id": ["VAT ID must start with country code BG."]}
         )
